@@ -1,0 +1,16 @@
+scikit-learn
+pyyaml
+imbalanced-learn
+lightgbm
+mlflow
+flask
+pymongo
+uvicorn
+matplotlib
+plotly
+seaborn
+from_root
+dill
+certifi
+python-multipart
+-e .
