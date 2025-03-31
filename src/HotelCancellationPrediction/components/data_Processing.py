@@ -36,7 +36,7 @@ class DataPreprocessing():
             logging.info("Starting the Data Preprocessing Step ------------------------------->")
             logging.info(" Dropping the unwanted columns ")
             
-            df.drop(columns= ['Unnamed: 0', 'Booking_ID'], inplace= True)
+            df.drop(columns= ['_id'], inplace= True)
             df.drop_duplicates(inplace= True)
             
             categorical_cols = self.config["data_processing"]["categorical_columns"]
@@ -75,14 +75,14 @@ class DataPreprocessing():
         """
         try:
             logging.info("Balancing the imbalanced data .................................")
-            X = df.drop(columns= "booking_status")
-            y = df['booking_status']
+            X = df.drop(columns= "booking status")
+            y = df['booking status']
             
             smote = SMOTE(random_state= 42)
             X_after_resampled, y_after_Resampled = smote.fit_resample(X, y)
             
             balanced_df_after_Smote=  pd.DataFrame(X_after_resampled, columns= X.columns)
-            balanced_df_after_Smote['booking_status'] = y_after_Resampled
+            balanced_df_after_Smote['booking status'] = y_after_Resampled
             
             logging.info("Data has been balanced successfully ")
 
@@ -100,8 +100,8 @@ class DataPreprocessing():
         try:
             logging.info(" Starting of the step - feature selections")
             
-            X = df.drop(columns= 'booking_status')
-            y = df['booking_status']
+            X = df.drop(columns= 'booking status')
+            y = df['booking status']
             
             model = RandomForestClassifier(random_state= 42)
             model.fit(X, y)
@@ -118,7 +118,7 @@ class DataPreprocessing():
             
             logging.info(f" The top features are :{ top_n_selected_features}")
             
-            top_n_features_selected_df = df[top_n_selected_features.tolist() + ['booking_status']]
+            top_n_features_selected_df = df[top_n_selected_features.tolist() + ['booking status']]
             
             logging.info(" Features Selection has been done successfully")
             return top_n_features_selected_df
