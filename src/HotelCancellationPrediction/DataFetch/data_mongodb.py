@@ -49,6 +49,8 @@ class mongodbData:
             print(f"Data fetched with len: {len(df)}")
             if "Booking_ID" in df.columns.to_list():
                 df = df.drop(columns=["Booking_ID"], axis=1)
+            if "_id" in df.columns.to_list():
+                df = df.drop(columns=["_id"], axis= 1)
             df.replace({"na":np.nan},inplace=True)
             return df
 
