@@ -20,7 +20,7 @@ class ModelTrainerClass():
     IN THIS CLASS WE WILL BE DEFINING SEVRRAL THING RELEATED TO MODEL TRAINING
     
     """
-    def __init__(self, train_path:str, test_path:str, model_trained_output_path:str):
+    def __init__(self, train_path, test_path, model_trained_output_path):
         self.training_data_path = train_path
         self.testing_data_path = test_path
         self.model_outputs_path = model_trained_output_path
@@ -44,11 +44,11 @@ class ModelTrainerClass():
             
             logging.info("Now we are going to split the data_---------------------------------------------->")
             X_train = train_df.drop(columns= ['booking status'])
-            y_train  = train_df['booking status']
+            y_train  = train_df[['booking status']]
             
             
             X_test = test_df.drop(columns=['booking status'])
-            y_test = test_df['booking status']
+            y_test = test_df[['booking status']]
             
             logging.info("Data has been splitted out successfully in the load and split functions")
             
