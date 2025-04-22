@@ -162,7 +162,7 @@ We’d love your help!
 ## 📧 Contact
 
 📌 **Author**: [Vaibhav rai]  
-📌 **GitHub**: [FaheemKhan0817](https://github.com/VaibhavRai24)  
+
 📌 **Email**: `vairaibhav922@gmail.com`  
 
 ---
